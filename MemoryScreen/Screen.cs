@@ -1,11 +1,14 @@
 ﻿namespace MemoryScreen;
 
-internal sealed class Screen
+/// <summary>
+/// Represents a screen to display something on a console.
+/// The displayed content is written to a buffer and rendered in the console.
+/// </summary>
+internal sealed class Screen : IRenderer
 {
     private readonly char[,] _buffer;
 
     public int Width { get; }
-
     public int Height { get; }
 
     public Screen(int width, int height)
@@ -15,6 +18,9 @@ internal sealed class Screen
         _buffer = new char[height, width];
     }
 
+    /// <summary>
+    /// Clears the screen buffer.
+    /// </summary>
     public void Clear()
     {
         for (int i = 0; i < Height; i++)
@@ -26,6 +32,9 @@ internal sealed class Screen
         }
     }
     
+    /// <summary>
+    /// Draws the bounds of the screen dimensions to the screen buffer
+    /// </summary>
     public void DrawScreenBorder()
     {
         // Generate top and bottom border
@@ -42,11 +51,18 @@ internal sealed class Screen
         }
     }
 
+    /// <summary>
+    /// Draws a single point into the screen buffer.
+    /// </summary>
+    /// <param name="point"></param>
     public void DrawPoint(Point point)
     {
         _buffer[point.Y, point.X] = 'o';
     }
 
+    /// <summary>
+    /// Renders the screen buffer to the console.
+    /// </summary>
     public void Render()
     {
         for (int i = 0; i < Height; i++)

@@ -1,5 +1,8 @@
 ﻿namespace MemoryScreen;
 
+/// <summary>
+/// Simple 2D coordinate to describe a position of an object.
+/// </summary>
 public struct Point
 {
     public int X { get; }
