@@ -20,6 +20,7 @@ while (!(Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Enter))
     memoryScreenManager.UpdateContent();
     memoryScreenManager.Render();
     Thread.Sleep(tickRate);
+    Console.SetCursorPosition(0,0);
 }
 
 // Small workaround to keep the console open after stopping.

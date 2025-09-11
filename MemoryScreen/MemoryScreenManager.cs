@@ -21,7 +21,6 @@ internal sealed class MemoryScreenManager : IRenderer
         _screen.DrawScreenBorder();
         _screen.DrawPoint(_ball.Position);
         _screen.Render();
-        Console.SetCursorPosition(0,0);
     }
     
     /// <summary>
