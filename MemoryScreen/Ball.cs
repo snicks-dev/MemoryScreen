@@ -3,7 +3,7 @@
 /// <summary>
 /// Represents a ball object with a position of the screen and a velocity to move.
 /// </summary>
-internal sealed class Ball
+internal sealed class Ball : IBall
 {
     private int _horizontalVel = 1;
     private int _verticalVel = 1;

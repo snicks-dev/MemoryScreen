@@ -4,7 +4,7 @@
 /// Represents a screen to display something on a console.
 /// The displayed content is written to a buffer and rendered in the console.
 /// </summary>
-internal sealed class Screen : IRenderer
+internal sealed class Screen : IScreen
 {
     private readonly char[,] _buffer;
 

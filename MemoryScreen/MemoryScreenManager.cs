@@ -2,17 +2,14 @@
 
 internal sealed class MemoryScreenManager : IRenderer
 {
-    private const int _screenWidth = 64;
-    private const int _screenHeight = 16;
-    private readonly Screen _screen = new(_screenWidth, _screenHeight);
+    private readonly IScreen _screen;
 
-    private readonly Ball _ball;
+    private readonly IBall _ball;
 
-    public MemoryScreenManager()
+    public MemoryScreenManager(IScreen screen, IBall ball)
     {
-        Random rnd = new();
-        Point ballStartPos = new(rnd.Next(1, _screenWidth), rnd.Next(1, _screenHeight));
-        _ball = new Ball(ballStartPos);
+        _screen = screen;
+        _ball = ball;
     }
 
     /// <summary>

@@ -4,12 +4,21 @@
 Console.CursorVisible = false;
 
 TimeSpan tickRate = TimeSpan.FromMilliseconds(100);
-MemoryScreenManager memoryScreen = new();
+
+const int screenWidth = 64;
+const int screenHeight = 16;
+Screen screen = new(screenWidth, screenHeight);
+
+Random rnd = new();
+Point ballStartPos = new(rnd.Next(1, screenWidth), rnd.Next(1, screenHeight));
+Ball ball = new(ballStartPos);
+
+MemoryScreenManager memoryScreenManager = new(screen, ball);
 
 while (!(Console.KeyAvailable && Console.ReadKey(true).Key == ConsoleKey.Enter))
 {
-    memoryScreen.UpdateContent();
-    memoryScreen.Render();
+    memoryScreenManager.UpdateContent();
+    memoryScreenManager.Render();
     Thread.Sleep(tickRate);
 }
 
